@@ -13,19 +13,23 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../src/context/AuthContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+// Dark theme with custom font
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "#0a0a0a", // full dark background
+      default: "#0a0a0a", // deep black
     },
     primary: {
-      main: "#8e2de2", // purple-pink gradient color
+      main: "#ff0080", // neon pink
     },
     text: {
       primary: "#ffffff",
-      secondary: "#bbbbbb",
+      secondary: "#aaaaaa",
     },
+  },
+  typography: {
+    fontFamily: "'Poppins', 'Montserrat', 'Roboto', sans-serif",
   },
 });
 
@@ -50,41 +54,51 @@ export default function Login() {
           justifyContent: "center",
           alignItems: "center",
           background:
-            "linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #141E30)",
-          backgroundSize: "400% 400%",
-          animation: "gradientBG 12s ease infinite",
-          "@keyframes gradientBG": {
-            "0%": { backgroundPosition: "0% 50%" },
-            "50%": { backgroundPosition: "100% 50%" },
-            "100%": { backgroundPosition: "0% 50%" },
-          },
+            "radial-gradient(circle at top left, #1a1a1a, #0a0a0a 60%)",
         }}
       >
         <Container maxWidth="sm">
           <Paper
-            elevation={10}
+            elevation={12}
             sx={{
-              p: 5,
-              borderRadius: 4,
-              backdropFilter: "blur(12px)",
-              backgroundColor: "rgba(18,18,18,0.85)",
-              boxShadow: "0px 8px 40px rgba(0,0,0,0.6)",
+              p: 6,
+              borderRadius: "30px",
+              backdropFilter: "blur(14px)",
+              backgroundColor: "rgba(20, 20, 20, 0.9)",
+              border: "2px solid rgba(255,0,128,0.3)",
+              boxShadow:
+                "0px 0px 20px rgba(255,0,128,0.4), inset 0px 0px 15px rgba(255,0,128,0.1)",
+              transition: "0.3s",
+              "&:hover": {
+                boxShadow:
+                  "0px 0px 35px rgba(255,0,128,0.6), inset 0px 0px 20px rgba(255,0,128,0.2)",
+              },
             }}
           >
             <Typography
-              variant="h4"
+              variant="h3"
               align="center"
               gutterBottom
               sx={{
-                fontWeight: "bold",
-                background: "linear-gradient(45deg, #8e2de2, #4a00e0)",
+                fontWeight: 800,
+                letterSpacing: "1px",
+                background: "linear-gradient(45deg, #ff0080, #7928ca)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
             >
               Welcome Back
             </Typography>
-            <Typography align="center" sx={{ mb: 3, color: "text.secondary" }}>
+
+            <Typography
+              align="center"
+              sx={{
+                mb: 4,
+                color: "text.secondary",
+                fontSize: "1rem",
+                fontWeight: 400,
+              }}
+            >
               Please login to continue
             </Typography>
 
@@ -99,10 +113,10 @@ export default function Login() {
                 mt: 2,
                 input: { color: "white" },
                 "& .MuiOutlinedInput-root": {
-                  borderRadius: 2,
+                  borderRadius: "15px",
                   "& fieldset": { borderColor: "#444" },
-                  "&:hover fieldset": { borderColor: "#8e2de2" },
-                  "&.Mui-focused fieldset": { borderColor: "#8e2de2" },
+                  "&:hover fieldset": { borderColor: "#ff0080" },
+                  "&.Mui-focused fieldset": { borderColor: "#ff0080" },
                 },
               }}
             />
@@ -114,13 +128,13 @@ export default function Login() {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               sx={{
-                mt: 2,
+                mt: 3,
                 input: { color: "white" },
                 "& .MuiOutlinedInput-root": {
-                  borderRadius: 2,
+                  borderRadius: "15px",
                   "& fieldset": { borderColor: "#444" },
-                  "&:hover fieldset": { borderColor: "#8e2de2" },
-                  "&.Mui-focused fieldset": { borderColor: "#8e2de2" },
+                  "&:hover fieldset": { borderColor: "#ff0080" },
+                  "&.Mui-focused fieldset": { borderColor: "#ff0080" },
                 },
               }}
             />
@@ -130,15 +144,17 @@ export default function Login() {
               variant="contained"
               size="large"
               sx={{
-                mt: 4,
+                mt: 5,
                 py: 1.5,
-                borderRadius: 3,
+                borderRadius: "20px",
                 fontWeight: "bold",
-                background: "linear-gradient(45deg, #8e2de2, #4a00e0)",
-                transition: "0.3s",
+                fontSize: "1.1rem",
+                letterSpacing: "1px",
+                background: "linear-gradient(45deg, #ff0080, #7928ca)",
+                transition: "all 0.3s ease-in-out",
                 "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0px 0px 20px rgba(142,45,226,0.6)",
+                  transform: "translateY(-3px) scale(1.05)",
+                  boxShadow: "0px 0px 25px rgba(255,0,128,0.7)",
                 },
               }}
               onClick={submit}

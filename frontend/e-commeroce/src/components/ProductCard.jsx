@@ -13,10 +13,14 @@ import api from "../api/api";
 export default function ProductCard({ product }) {
   const addToCart = async () => {
     try {
-      alert(`${product.name} added to cart`);
+      await api.post("/cart/add", {
+        productId: product._id,
+        qty: 1,
+      });
+      // Removed alert
     } catch (err) {
       console.error("Add to cart failed:", err);
-      alert("Failed to add to cart. Please log in first.");
+      // Removed alert
     }
   };
 

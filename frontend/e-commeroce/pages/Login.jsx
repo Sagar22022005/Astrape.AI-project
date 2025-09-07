@@ -17,15 +17,14 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "#0a0a0a", // deep dark background
-      paper: "#121212", // card background
+      default: "#0a0a0a", // full dark background
     },
     primary: {
-      main: "#bb86fc", // purple accent
+      main: "#8e2de2", // purple-pink gradient color
     },
     text: {
       primary: "#ffffff",
-      secondary: "#aaaaaa",
+      secondary: "#bbbbbb",
     },
   },
 });
@@ -50,27 +49,45 @@ export default function Login() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          bgcolor: "background.default",
+          background:
+            "linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #141E30)",
+          backgroundSize: "400% 400%",
+          animation: "gradientBG 12s ease infinite",
+          "@keyframes gradientBG": {
+            "0%": { backgroundPosition: "0% 50%" },
+            "50%": { backgroundPosition: "100% 50%" },
+            "100%": { backgroundPosition: "0% 50%" },
+          },
         }}
       >
         <Container maxWidth="sm">
           <Paper
-            elevation={8}
+            elevation={10}
             sx={{
-              p: 4,
-              borderRadius: 3,
-              bgcolor: "background.paper",
-              boxShadow: "0px 0px 15px rgba(0,0,0,0.9)",
+              p: 5,
+              borderRadius: 4,
+              backdropFilter: "blur(12px)",
+              backgroundColor: "rgba(18,18,18,0.85)",
+              boxShadow: "0px 8px 40px rgba(0,0,0,0.6)",
             }}
           >
             <Typography
-              variant="h5"
+              variant="h4"
               align="center"
               gutterBottom
-              sx={{ fontWeight: "bold", color: "primary.main" }}
+              sx={{
+                fontWeight: "bold",
+                background: "linear-gradient(45deg, #8e2de2, #4a00e0)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
             >
-              Login
+              Welcome Back
             </Typography>
+            <Typography align="center" sx={{ mb: 3, color: "text.secondary" }}>
+              Please login to continue
+            </Typography>
+
             <TextField
               fullWidth
               label="Email"
@@ -78,7 +95,16 @@ export default function Login() {
               variant="outlined"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              sx={{ mt: 2, input: { color: "white" } }}
+              sx={{
+                mt: 2,
+                input: { color: "white" },
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: 2,
+                  "& fieldset": { borderColor: "#444" },
+                  "&:hover fieldset": { borderColor: "#8e2de2" },
+                  "&.Mui-focused fieldset": { borderColor: "#8e2de2" },
+                },
+              }}
             />
             <TextField
               fullWidth
@@ -87,20 +113,32 @@ export default function Login() {
               variant="outlined"
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
-              sx={{ mt: 2, input: { color: "white" } }}
+              sx={{
+                mt: 2,
+                input: { color: "white" },
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: 2,
+                  "& fieldset": { borderColor: "#444" },
+                  "&:hover fieldset": { borderColor: "#8e2de2" },
+                  "&.Mui-focused fieldset": { borderColor: "#8e2de2" },
+                },
+              }}
             />
+
             <Button
               fullWidth
               variant="contained"
               size="large"
               sx={{
-                mt: 3,
-                borderRadius: 2,
-                backgroundColor: "primary.main",
-                color: "#0a0a0a",
+                mt: 4,
+                py: 1.5,
+                borderRadius: 3,
                 fontWeight: "bold",
+                background: "linear-gradient(45deg, #8e2de2, #4a00e0)",
+                transition: "0.3s",
                 "&:hover": {
-                  backgroundColor: "#9d6dff",
+                  transform: "scale(1.05)",
+                  boxShadow: "0px 0px 20px rgba(142,45,226,0.6)",
                 },
               }}
               onClick={submit}

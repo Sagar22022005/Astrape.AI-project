@@ -22,16 +22,16 @@ export default function Login() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "linear-gradient(135deg, #0f0f0f, #1a1a2e)", // Darker gradient
+        background: "linear-gradient(135deg, #0d0d0d, #1a1a2e)", // dark theme background
       }}
     >
       <Container
         maxWidth="sm"
         sx={{
-          background: "rgba(20, 20, 20, 0.95)",
+          background: "rgba(25, 25, 25, 0.95)",
           padding: "40px",
           borderRadius: "20px",
-          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.8)",
+          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.9)",
           textAlign: "center",
         }}
       >
@@ -47,7 +47,7 @@ export default function Login() {
           Welcome Back
         </Typography>
         <Typography
-          sx={{ mb: 4, color: "#aaa", fontFamily: "'Poppins', sans-serif" }}
+          sx={{ mb: 4, color: "#bbb", fontFamily: "'Poppins', sans-serif" }}
         >
           Please login to continue
         </Typography>
@@ -62,15 +62,19 @@ export default function Login() {
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           sx={{
             mt: 2,
-            input: { color: "lime", background: "transparent" },
+            input: {
+              color: "#000",
+              background: "#f5f5f5",
+              borderRadius: "10px",
+            }, // light background
             "& .MuiOutlinedInput-root": {
-              borderRadius: "15px",
-              backgroundColor: "rgba(39, 44, 2, 0.05)",
-              "& fieldset": { borderColor: "#613131ff" },
+              borderRadius: "12px",
+              backgroundColor: "#f5f5f5",
+              "& fieldset": { borderColor: "#999" },
               "&:hover fieldset": { borderColor: "#9c27b0" },
               "&.Mui-focused fieldset": { borderColor: "#9c27b0" },
             },
-            "& .MuiInputLabel-root": { color: "#c0cd00ff" },
+            "& .MuiInputLabel-root": { color: "#555" },
             "& .MuiInputLabel-root.Mui-focused": { color: "#9c27b0" },
           }}
         />
@@ -85,15 +89,19 @@ export default function Login() {
           onChange={(e) => setForm({ ...form, password: e.target.value })}
           sx={{
             mt: 3,
-            input: { color: "white", background: "transparent" },
+            input: {
+              color: "#000",
+              background: "#f5f5f5",
+              borderRadius: "10px",
+            }, // light background
             "& .MuiOutlinedInput-root": {
-              borderRadius: "15px",
-              backgroundColor: "rgba(255,255,255,0.05)",
-              "& fieldset": { borderColor: "#444" },
+              borderRadius: "12px",
+              backgroundColor: "#f5f5f5",
+              "& fieldset": { borderColor: "#999" },
               "&:hover fieldset": { borderColor: "#9c27b0" },
               "&.Mui-focused fieldset": { borderColor: "#9c27b0" },
             },
-            "& .MuiInputLabel-root": { color: "#aaa" },
+            "& .MuiInputLabel-root": { color: "#555" },
             "& .MuiInputLabel-root.Mui-focused": { color: "#9c27b0" },
           }}
         />

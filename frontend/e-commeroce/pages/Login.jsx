@@ -91,12 +91,12 @@ export default function Login() {
             mt: 3,
             input: {
               color: "#000",
-              background: "#f5f5f5",
+              background: "#9fa054ff",
               borderRadius: "10px",
             }, // light background
             "& .MuiOutlinedInput-root": {
               borderRadius: "12px",
-              backgroundColor: "#f5f5f5",
+              backgroundColor: "#9fa054ff",
               "& fieldset": { borderColor: "#999" },
               "&:hover fieldset": { borderColor: "#9c27b0" },
               "&.Mui-focused fieldset": { borderColor: "#9c27b0" },

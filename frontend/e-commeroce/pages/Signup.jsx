@@ -17,14 +17,15 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "linear-gradient(to right, #0f2027, #203a43, #2c5364)", // gradient bg
-      paper: "#1e1e2f", // form box background
+      default: "#0a0a0a", // pure dark background
+      paper: "#121212", // slightly lighter card
     },
     primary: {
-      main: "#7c4dff", // purple accent
+      main: "#bb86fc", // soft purple (Google dark theme style)
     },
     text: {
       primary: "#ffffff",
+      secondary: "#aaaaaa",
     },
   },
 });
@@ -49,19 +50,25 @@ export default function Signup() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          background: darkTheme.palette.background.default,
+          bgcolor: "background.default",
         }}
       >
         <Container maxWidth="sm">
           <Paper
-            elevation={6}
+            elevation={8}
             sx={{
               p: 4,
               borderRadius: 3,
-              backgroundColor: darkTheme.palette.background.paper,
+              bgcolor: "background.paper",
+              boxShadow: "0px 0px 15px rgba(0,0,0,0.9)",
             }}
           >
-            <Typography variant="h5" align="center" gutterBottom>
+            <Typography
+              variant="h5"
+              align="center"
+              gutterBottom
+              sx={{ fontWeight: "bold", color: "primary.main" }}
+            >
               Sign up
             </Typography>
             <TextField
@@ -70,7 +77,7 @@ export default function Signup() {
               variant="outlined"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              sx={{ mt: 2 }}
+              sx={{ mt: 2, input: { color: "white" } }}
             />
             <TextField
               fullWidth
@@ -79,7 +86,7 @@ export default function Signup() {
               variant="outlined"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              sx={{ mt: 2 }}
+              sx={{ mt: 2, input: { color: "white" } }}
             />
             <TextField
               fullWidth
@@ -88,13 +95,22 @@ export default function Signup() {
               variant="outlined"
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
-              sx={{ mt: 2 }}
+              sx={{ mt: 2, input: { color: "white" } }}
             />
             <Button
               fullWidth
               variant="contained"
               size="large"
-              sx={{ mt: 3, borderRadius: 2 }}
+              sx={{
+                mt: 3,
+                borderRadius: 2,
+                backgroundColor: "primary.main",
+                color: "#0a0a0a",
+                fontWeight: "bold",
+                "&:hover": {
+                  backgroundColor: "#9d6dff",
+                },
+              }}
               onClick={submit}
             >
               Sign up

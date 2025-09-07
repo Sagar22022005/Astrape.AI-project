@@ -62,7 +62,7 @@ export default function Login() {
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           sx={{
             mt: 2,
-            input: { color: "peach", background: "transparent" },
+            input: { color: "lime", background: "transparent" },
             "& .MuiOutlinedInput-root": {
               borderRadius: "15px",
               backgroundColor: "rgba(39, 44, 2, 0.05)",

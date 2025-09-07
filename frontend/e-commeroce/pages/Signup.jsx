@@ -6,6 +6,8 @@ import {
   Container,
   Typography,
   CssBaseline,
+  Box,
+  Paper,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../src/context/AuthContext";
@@ -15,11 +17,11 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "#121212", // page background
-      paper: "#1e1e1e", // container background
+      default: "linear-gradient(to right, #0f2027, #203a43, #2c5364)", // gradient bg
+      paper: "#1e1e2f", // form box background
     },
     primary: {
-      main: "#90caf9", // button color
+      main: "#7c4dff", // purple accent
     },
     text: {
       primary: "#ffffff",
@@ -41,45 +43,65 @@ export default function Signup() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Container
-        maxWidth="sm"
+      <Box
         sx={{
-          mt: 6,
-          p: 4,
-          borderRadius: 2,
-          boxShadow: 3,
-          bgcolor: "background.paper",
+          minHeight: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          background: darkTheme.palette.background.default,
         }}
       >
-        <Typography variant="h5" gutterBottom>
-          Sign up
-        </Typography>
-        <TextField
-          fullWidth
-          label="Name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          sx={{ mt: 2 }}
-        />
-        <TextField
-          fullWidth
-          label="Email"
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          sx={{ mt: 2 }}
-        />
-        <TextField
-          fullWidth
-          label="Password"
-          type="password"
-          value={form.password}
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-          sx={{ mt: 2 }}
-        />
-        <Button variant="contained" sx={{ mt: 3 }} onClick={submit}>
-          Sign up
-        </Button>
-      </Container>
+        <Container maxWidth="sm">
+          <Paper
+            elevation={6}
+            sx={{
+              p: 4,
+              borderRadius: 3,
+              backgroundColor: darkTheme.palette.background.paper,
+            }}
+          >
+            <Typography variant="h5" align="center" gutterBottom>
+              Sign up
+            </Typography>
+            <TextField
+              fullWidth
+              label="Name"
+              variant="outlined"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              sx={{ mt: 2 }}
+            />
+            <TextField
+              fullWidth
+              label="Email"
+              type="email"
+              variant="outlined"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              sx={{ mt: 2 }}
+            />
+            <TextField
+              fullWidth
+              label="Password"
+              type="password"
+              variant="outlined"
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              sx={{ mt: 2 }}
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              size="large"
+              sx={{ mt: 3, borderRadius: 2 }}
+              onClick={submit}
+            >
+              Sign up
+            </Button>
+          </Paper>
+        </Container>
+      </Box>
     </ThemeProvider>
   );
 }

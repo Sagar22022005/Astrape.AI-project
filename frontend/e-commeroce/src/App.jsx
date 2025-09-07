@@ -34,7 +34,7 @@ export default function App() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            E-Shop
+            Astrape
           </Typography>
 
           {/* Nav Links */}

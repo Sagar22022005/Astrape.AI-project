@@ -65,8 +65,8 @@ export default function Login() {
             input: { color: "white", background: "transparent" },
             "& .MuiOutlinedInput-root": {
               borderRadius: "15px",
-              backgroundColor: "rgba(255,255,255,0.05)",
-              "& fieldset": { borderColor: "#444" },
+              backgroundColor: "rgba(92, 75, 75, 0.05)",
+              "& fieldset": { borderColor: "#613131ff" },
               "&:hover fieldset": { borderColor: "#9c27b0" },
               "&.Mui-focused fieldset": { borderColor: "#9c27b0" },
             },

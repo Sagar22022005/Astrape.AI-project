@@ -31,7 +31,7 @@ export default function Signup() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          background: "linear-gradient(135deg, #0d0d0d, #1a1a2e)", // dark gradient
+          background: "linear-gradient(135deg, #0d0d0d, #1a1a2e)", // same as login
         }}
       >
         <Container
@@ -44,6 +44,7 @@ export default function Signup() {
             textAlign: "center",
           }}
         >
+          {/* Heading */}
           <Typography
             variant="h4"
             sx={{

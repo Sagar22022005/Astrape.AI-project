@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import api from "../src/api/api";
-import { TextField, Button, Container, Typography } from "@mui/material";
+import { TextField, Button, Container, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../src/context/AuthContext";
 
@@ -16,26 +16,79 @@ export default function Login() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 4 }}>
-      <Typography variant="h5">Login</Typography>
-      <TextField
-        fullWidth
-        label="Email"
-        value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-        sx={{ mt: 2 }}
-      />
-      <TextField
-        fullWidth
-        label="Password"
-        type="password"
-        value={form.password}
-        onChange={(e) => setForm({ ...form, password: e.target.value })}
-        sx={{ mt: 2 }}
-      />
-      <Button variant="contained" sx={{ mt: 2 }} onClick={submit}>
-        Login
-      </Button>
-    </Container>
+    <Box
+      className="min-h-screen flex items-center justify-center bg-gray-950"
+      sx={{ py: 8 }}
+    >
+      <Container
+        maxWidth="sm"
+        sx={{
+          p: 6,
+          bgcolor: "#1f1f1f",
+          borderRadius: 4,
+          boxShadow: 8,
+        }}
+      >
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          textAlign="center"
+          sx={{ mb: 4, color: "white" }}
+        >
+          Login
+        </Typography>
+
+        <TextField
+          fullWidth
+          label="Email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          sx={{
+            mb: 3,
+            input: { color: "white" },
+            label: { color: "gray" },
+            "& .MuiOutlinedInput-root": {
+              bgcolor: "#2c2c2c",
+              borderRadius: 2,
+              "&:hover fieldset": { borderColor: "#6b46c1" },
+              "&.Mui-focused fieldset": { borderColor: "#6b46c1" },
+            },
+          }}
+        />
+
+        <TextField
+          fullWidth
+          label="Password"
+          type="password"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          sx={{
+            mb: 4,
+            input: { color: "white" },
+            label: { color: "gray" },
+            "& .MuiOutlinedInput-root": {
+              bgcolor: "#2c2c2c",
+              borderRadius: 2,
+              "&:hover fieldset": { borderColor: "#6b46c1" },
+              "&.Mui-focused fieldset": { borderColor: "#6b46c1" },
+            },
+          }}
+        />
+
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{
+            py: 1.5,
+            borderRadius: 3,
+            bgcolor: "purple.600",
+            "&:hover": { bgcolor: "purple.700" },
+          }}
+          onClick={submit}
+        >
+          Login
+        </Button>
+      </Container>
+    </Box>
   );
 }

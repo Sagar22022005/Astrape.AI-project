@@ -1,18 +1,34 @@
 import React, { useState, useContext } from "react";
 import api from "../src/api/api";
-import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Container,
+  Typography,
+  Box,
+  Alert,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../src/context/AuthContext";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState(""); // <-- for showing error messages
   const { login } = useContext(AuthContext);
   const nav = useNavigate();
 
   const submit = async () => {
-    const res = await api.post("/auth/login", form);
-    login(res.data.user, res.data.token);
-    nav("/");
+    try {
+      setError(""); // clear previous errors
+      const res = await api.post("/auth/login", form);
+      login(res.data.user, res.data.token);
+      nav("/");
+    } catch (err) {
+      console.error("Login failed:", err);
+      setError(
+        err.response?.data?.message || "Login failed. Check your credentials."
+      );
+    }
   };
 
   return (
@@ -37,6 +53,12 @@ export default function Login() {
         >
           Login
         </Typography>
+
+        {error && (
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {error}
+          </Alert>
+        )}
 
         <TextField
           fullWidth

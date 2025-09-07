@@ -62,7 +62,7 @@ export default function Login() {
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           sx={{
             mt: 2,
-            input: { color: "white", background: "transparent" },
+            input: { color: "peach", background: "transparent" },
             "& .MuiOutlinedInput-root": {
               borderRadius: "15px",
               backgroundColor: "rgba(39, 44, 2, 0.05)",
@@ -70,7 +70,7 @@ export default function Login() {
               "&:hover fieldset": { borderColor: "#9c27b0" },
               "&.Mui-focused fieldset": { borderColor: "#9c27b0" },
             },
-            "& .MuiInputLabel-root": { color: "#aaa" },
+            "& .MuiInputLabel-root": { color: "#c0cd00ff" },
             "& .MuiInputLabel-root.Mui-focused": { color: "#9c27b0" },
           }}
         />

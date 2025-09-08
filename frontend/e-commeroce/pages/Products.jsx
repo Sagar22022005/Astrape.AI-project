@@ -50,7 +50,7 @@ export default function Products() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl font-extrabold text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text mb-6">
-            Discover Products
+            Discover Astrape Products
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Browse our curated collection of premium products designed to

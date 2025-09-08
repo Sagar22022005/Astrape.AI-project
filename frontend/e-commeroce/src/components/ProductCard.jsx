@@ -151,13 +151,7 @@ export default function ProductCard({ product }) {
         autoHideDuration={3000}
         onClose={() => setSnackbarOpen(false)}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        sx={{
-          position: "fixed",
-          top: "70px", // adjust based on your navbar height
-          right: "20px",
-          zIndex: 1300, // MUI modal/z-index scale, higher than AppBar
-        }}
-        container={() => document.body} // 👈 render outside navbar
+        sx={{ zIndex: 2000 }} // 👈 keeps it above navbar
       >
         <Alert
           onClose={() => setSnackbarOpen(false)}

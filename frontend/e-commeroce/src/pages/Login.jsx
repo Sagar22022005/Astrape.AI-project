@@ -1,18 +1,32 @@
 import React, { useState, useContext } from "react";
-import api from "../src/api/api";
+import api from "../api/api";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../src/context/AuthContext";
-
+import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-hot-toast";
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const { login } = useContext(AuthContext);
   const nav = useNavigate();
 
   const submit = async () => {
-    const res = await api.post("/auth/login", form);
-    login(res.data.user, res.data.token);
-    nav("/");
+    try {
+      console.log(form);
+      const res = await api.post("/auth/login", form);
+
+      // If login succeeds
+      login(res.data.user, res.data.token);
+      nav("/");
+    } catch (err) {
+      console.error(err);
+
+      // Check if it's a 400 error from backend
+      if (err.response && err.response.status === 400) {
+        toast.error(err.response.data.message || "Invalid credentials");
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    }
   };
 
   return (

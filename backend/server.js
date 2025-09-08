@@ -7,7 +7,12 @@ const productsRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // frontend origin
+    credentials: true, // allow cookies/auth headers
+  })
+);
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);

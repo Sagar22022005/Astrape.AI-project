@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "../src/api/api";
+import api from "../api/api";
 import { Search, Filter, Sparkles, TrendingUp } from "lucide-react";
 import {
   Container,
@@ -9,7 +9,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import ProductCard from "../src/components/ProductCard";
+import ProductCard from "../components/ProductCard";
 
 export default function Products() {
   const [items, setItems] = useState([]);
@@ -26,6 +26,7 @@ export default function Products() {
         params: { q, category, min, max, limit: 12 },
       });
       setItems(res.data.items);
+      console.log(res.data);
     } catch (error) {
       console.error("Failed to fetch products:", error);
     } finally {

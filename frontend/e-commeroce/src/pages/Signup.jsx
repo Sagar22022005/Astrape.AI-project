@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import api from "../src/api/api";
+import api from "../api/api";
 import {
   TextField,
   Button,
@@ -9,7 +9,7 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../src/context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Signup() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });

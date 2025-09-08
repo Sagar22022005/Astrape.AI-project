@@ -9,7 +9,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import ProductCard from "../src/components/ProductCard";
+import ProductCard from "../src/components/ProductList";
 
 export default function Products() {
   const [items, setItems] = useState([]);

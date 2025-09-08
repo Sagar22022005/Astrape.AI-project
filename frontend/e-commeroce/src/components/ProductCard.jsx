@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
       });
 
       // ✅ Show success popup
-      setSnackbarMsg(`${product.name} added successfully!`);
+      setSnackbarMsg(`₹{product.name} added successfully!`);
       setSnackbarType("success");
       setSnackbarOpen(true);
     } catch (err) {
@@ -119,7 +119,7 @@ export default function ProductCard({ product }) {
             justifyContent="space-between"
           >
             <Typography variant="h6" sx={{ color: "#a78bfa", fontWeight: 700 }}>
-              ${product.price}
+              ₹{product.price}
             </Typography>
             <Button
               variant="contained"

@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
       });
 
       // ✅ Show success popup
-      setSnackbarMsg(`${product.name} added successfully!`);
+      setSnackbarMsg(`added successfully!`);
       setSnackbarType("success");
       setSnackbarOpen(true);
     } catch (err) {

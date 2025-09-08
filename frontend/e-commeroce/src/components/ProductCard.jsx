@@ -150,7 +150,13 @@ export default function ProductCard({ product }) {
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={() => setSnackbarOpen(false)}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }} // 👈 Force top-right
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        sx={{
+          position: "fixed !important", // force out of parent container
+          top: "70px !important", // move below navbar height
+          right: "20px !important",
+          zIndex: 9999, // stay above navbar
+        }}
       >
         <Alert
           onClose={() => setSnackbarOpen(false)}

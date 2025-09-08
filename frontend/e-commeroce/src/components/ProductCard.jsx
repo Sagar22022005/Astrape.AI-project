@@ -24,14 +24,11 @@ export default function ProductCard({ product }) {
         qty: 1,
       });
 
-      // ✅ Show success popup
-      setSnackbarMsg(`${product.name} added successfully!`);
+      setSnackbarMsg(`${product.name || "Product"} added successfully!`);
       setSnackbarType("success");
       setSnackbarOpen(true);
     } catch (err) {
       console.error("Add to cart failed:", err);
-
-      // ❌ Show error popup
       setSnackbarMsg("Failed to add to cart. Please log in first.");
       setSnackbarType("error");
       setSnackbarOpen(true);
@@ -98,6 +95,7 @@ export default function ProductCard({ product }) {
           >
             {product.name}
           </Typography>
+
           <Typography
             variant="body2"
             sx={{
@@ -145,16 +143,15 @@ export default function ProductCard({ product }) {
         </CardContent>
       </Card>
 
-      {/* ✅ Snackbar Popup near cart (top-right) */}
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={() => setSnackbarOpen(false)}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        container={() => document.body} // ✅ attach to <body>
+        container={() => document.body}
         sx={{
-          position: "fixed", // ✅ makes it independent of card/navbar
-          top: "70px", // adjust this based on your navbar height
+          position: "fixed",
+          top: "70px", // adjust to be below your navbar height
           right: "20px",
           zIndex: 2000,
         }}

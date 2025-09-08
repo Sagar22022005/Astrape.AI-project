@@ -50,11 +50,16 @@ export default function ProductCard({ product }) {
       <Box sx={{ position: "relative" }}>
         <CardMedia
           component="img"
-          height="220"
           image={productImage}
           alt={productName}
-          sx={{ objectFit: "cover" }}
+          sx={{
+            width: "100%", // always fill width
+            height: 220, // fixed height for all images
+            objectFit: "cover", // crop so all look uniform
+            display: "block", // prevents inline gaps
+          }}
         />
+
         {product.isNew && (
           <Chip
             label="New"

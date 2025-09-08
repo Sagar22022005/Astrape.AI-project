@@ -17,16 +17,17 @@ export default function ProductCard({ product }) {
   const [snackbarMsg, setSnackbarMsg] = useState("");
   const [snackbarType, setSnackbarType] = useState("success");
 
-  // Safe field mapping
+  // Use backend fields safely
   const productName = product.name || product.title || "Unnamed Product";
   const productPrice = product.price ?? "N/A";
   const productImage =
     product.image || "https://via.placeholder.com/220x220?text=No+Image";
+  const productId = product._id || product.id;
 
   const addToCart = async () => {
     try {
-      if (!product._id) throw new Error("Product ID missing");
-      await api.post("/cart/add", { productId: product._id, qty: 1 });
+      if (!productId) throw new Error("Product ID missing");
+      await api.post("/cart/add", { productId, qty: 1 });
 
       setSnackbarMsg(`${productName} added successfully!`);
       setSnackbarType("success");

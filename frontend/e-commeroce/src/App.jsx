@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Products from "../pages/Products";
 import Cart from "../pages/Cart";
 import Login from "../pages/Login";
-import Signup from "../pages/Signup";
+import Signup from "./pages/Signup";
 import { AppBar, Toolbar, Button, Typography, Box } from "@mui/material";
 import { AuthContext } from "./context/AuthContext";
 

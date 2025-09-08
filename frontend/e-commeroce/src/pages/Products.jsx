@@ -25,8 +25,8 @@ export default function Products() {
       const res = await api.get("/products", {
         params: { q, category, min, max, limit: 12 },
       });
-      setItems(res.data.items);
-      console.log(res.data);
+      setItems(res.data.items || res.data);
+      console.log("Products fetched:", res.data);
     } catch (error) {
       console.error("Failed to fetch products:", error);
     } finally {

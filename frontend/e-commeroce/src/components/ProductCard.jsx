@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
       });
 
       // ✅ Show success popup
-      setSnackbarMsg(`added successfully!`);
+      setSnackbarMsg(`${product.name} added successfully!`);
       setSnackbarType("success");
       setSnackbarOpen(true);
     } catch (err) {
@@ -145,12 +145,12 @@ export default function ProductCard({ product }) {
         </CardContent>
       </Card>
 
-      {/* ✅ Snackbar Popup */}
+      {/* ✅ Snackbar Popup near cart (top-right) */}
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={() => setSnackbarOpen(false)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }} // 👈 top-right corner
       >
         <Alert
           onClose={() => setSnackbarOpen(false)}

@@ -154,7 +154,7 @@ export default function Cart() {
                             variant="body2"
                             sx={{ color: "rgba(209,213,219,0.9)", mt: 0.5 }}
                           >
-                            Qty: {ci.qty} × ${ci.product.price}
+                            Qty: {ci.qty} × ₹{ci.product.price}
                           </Typography>
                         }
                       />

@@ -100,7 +100,7 @@ export default function ProductCard({ product }) {
 
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Typography variant="h6" sx={{ color: "#a78bfa", fontWeight: 700 }}>
-            ${product.price}
+            ₹{product.price}
           </Typography>
           <Button
             variant="contained"

@@ -9,15 +9,23 @@ const cartRoutes = require("./routes/cart");
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend origin
-    credentials: true, // allow cookies/auth headers
+    origin: [
+      "http://localhost:5173",
+      "https://astrape-ai.vercel.app", // your deployed frontend
+    ],
+    credentials: true,
   })
 );
+
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productsRoutes);
 app.use("/api/cart", cartRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Backend is running ✅");
+});
 
 const PORT = process.env.PORT || 5000;
 connectDB(process.env.MONGO_URI).then(() => {

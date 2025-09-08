@@ -15,7 +15,7 @@ export default function App() {
     <>
       <Toaster />{" "}
       <div className="min-h-screen bg-gray-950 text-white">
-        {/* Navbar */}
+        {}
         <AppBar
           position="sticky"
           elevation={0}

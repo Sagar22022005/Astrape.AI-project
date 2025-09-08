@@ -9,7 +9,10 @@ const cartRoutes = require("./routes/cart");
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://astrape-ai.vercel.app"],
+    origin: [
+      "http://localhost:5173", // local dev
+      "https://astrape-ai-project-delta.vercel.app", // your Vercel frontend
+    ],
     credentials: true,
   })
 );

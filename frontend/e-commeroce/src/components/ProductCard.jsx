@@ -152,11 +152,12 @@ export default function ProductCard({ product }) {
         onClose={() => setSnackbarOpen(false)}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         sx={{
-          position: "fixed !important", // force out of parent container
-          top: "70px !important", // move below navbar height
-          right: "20px !important",
-          zIndex: 9999, // stay above navbar
+          position: "fixed",
+          top: "70px", // adjust based on your navbar height
+          right: "20px",
+          zIndex: 1300, // MUI modal/z-index scale, higher than AppBar
         }}
+        container={() => document.body} // 👈 render outside navbar
       >
         <Alert
           onClose={() => setSnackbarOpen(false)}

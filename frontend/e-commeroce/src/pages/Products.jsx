@@ -40,7 +40,7 @@ export default function Products() {
 
   return (
     <div className="min-h-screen bg-gray-950">
-      {/* Animated background */}
+      {}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -48,7 +48,7 @@ export default function Products() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-12">
-        {/* Header */}
+        {}
         <div className="text-center mb-16">
           <h1 className="text-5xl font-extrabold text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text mb-6">
             Discover Astrape Products
@@ -71,10 +71,10 @@ export default function Products() {
           </div>
         </div>
 
-        {/* Filters */}
+        {}
         <div className="bg-gray-900/60 backdrop-blur-lg rounded-3xl p-8 mb-14 border border-gray-700/40 shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-            {/* Search */}
+            {}
             <div className="lg:col-span-2 relative">
               <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                 <Search size={20} />
@@ -88,7 +88,7 @@ export default function Products() {
               />
             </div>
 
-            {/* Min Price */}
+            {}
             <div className="relative">
               <input
                 type="number"
@@ -99,7 +99,7 @@ export default function Products() {
               />
             </div>
 
-            {/* Max Price */}
+            {}
             <div className="relative">
               <input
                 type="number"
@@ -110,7 +110,7 @@ export default function Products() {
               />
             </div>
 
-            {/* Category */}
+            {}
             <div className="relative">
               <select
                 value={category}

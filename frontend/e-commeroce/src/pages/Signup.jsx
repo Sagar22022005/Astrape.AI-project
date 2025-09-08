@@ -44,7 +44,7 @@ export default function Signup() {
             textAlign: "center",
           }}
         >
-          {/* Heading */}
+          {}
           <Typography
             variant="h4"
             sx={{
@@ -62,7 +62,7 @@ export default function Signup() {
             Please sign up to continue
           </Typography>
 
-          {/* Name Input */}
+          {}
           <TextField
             fullWidth
             label="Name"
@@ -88,7 +88,7 @@ export default function Signup() {
             }}
           />
 
-          {/* Email Input */}
+          {}
           <TextField
             fullWidth
             label="Email"
@@ -115,7 +115,7 @@ export default function Signup() {
             }}
           />
 
-          {/* Password Input */}
+          {}
           <TextField
             fullWidth
             label="Password"
@@ -142,7 +142,7 @@ export default function Signup() {
             }}
           />
 
-          {/* Signup Button */}
+          {}
           <Button
             fullWidth
             variant="contained"

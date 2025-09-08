@@ -39,7 +39,7 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      {/* Background Glow */}
+      {}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -47,7 +47,7 @@ export default function Cart() {
       </div>
 
       <Container sx={{ py: 8 }} className="relative z-10">
-        {/* Header */}
+        {}
         <Typography
           variant="h4"
           fontWeight="bold"
@@ -61,7 +61,7 @@ export default function Cart() {
           🛒 Your Cart
         </Typography>
 
-        {/* Empty State */}
+        {}
         {cart.items.length === 0 ? (
           <Paper
             elevation={4}
@@ -94,7 +94,7 @@ export default function Cart() {
               color: "white",
             }}
           >
-            {/* Cart Items */}
+            {}
             <List>
               {cart.items.map((ci, index) => (
                 <Fade in key={ci._id || ci.product._id}>
@@ -124,7 +124,7 @@ export default function Cart() {
                         </IconButton>
                       }
                     >
-                      {/* Product Image */}
+                      {}
                       <Box
                         component="img"
                         src={
@@ -142,7 +142,7 @@ export default function Cart() {
                         }}
                       />
 
-                      {/* Product Details */}
+                      {}
                       <ListItemText
                         primary={
                           <Typography variant="subtitle1" fontWeight={600}>
@@ -169,7 +169,7 @@ export default function Cart() {
               ))}
             </List>
 
-            {/* Checkout Button */}
+            {}
             <Box display="flex" justifyContent="flex-end" mt={3}>
               <Button
                 variant="contained"

@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 require("dotenv").config();
 
-// signup
 router.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
   console.log(name, email, password);
@@ -25,7 +24,6 @@ router.post("/signup", async (req, res) => {
   });
 });
 
-// login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   console.log(email, password);

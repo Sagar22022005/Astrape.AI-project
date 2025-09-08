@@ -3,7 +3,6 @@ const router = express.Router();
 const auth = require("../middleware/auth");
 const Cart = require("../models/Cart");
 
-// get cart for user
 router.get("/", auth, async (req, res) => {
   let cart = await Cart.findOne({ user: req.user.id }).populate(
     "items.product"
@@ -15,7 +14,6 @@ router.get("/", auth, async (req, res) => {
   res.json(cart);
 });
 
-// add/update item
 router.post("/add", auth, async (req, res) => {
   const { productId, qty = 1 } = req.body;
   let cart = await Cart.findOne({ user: req.user.id });
@@ -34,7 +32,6 @@ router.post("/add", auth, async (req, res) => {
   res.json(cart);
 });
 
-// remove item
 router.post("/remove", auth, async (req, res) => {
   const { productId } = req.body;
   let cart = await Cart.findOne({ user: req.user.id });

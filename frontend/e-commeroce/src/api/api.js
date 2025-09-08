@@ -6,11 +6,11 @@ const API_BASE =
 
 const api = axios.create({
   baseURL: API_BASE,
-  withCredentials: true, // 🔑 send cookies automatically
+  withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token"); // if using Bearer tokens
+  const token = localStorage.getItem("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

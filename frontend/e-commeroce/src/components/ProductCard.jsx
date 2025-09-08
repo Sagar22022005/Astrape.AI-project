@@ -8,11 +8,10 @@ import {
   Box,
   Chip,
 } from "@mui/material";
-import { toast } from "react-hot-toast"; // ✅ import hot toast
+import { toast } from "react-hot-toast";
 import api from "../api/api";
 
 export default function ProductCard({ product }) {
-  // Use backend fields safely
   const productName = product.description || product.title || "Unnamed Product";
   const productPrice = product.price ?? "N/A";
   const productImage =
@@ -24,10 +23,10 @@ export default function ProductCard({ product }) {
       if (!productId) throw new Error("Product ID missing");
       await api.post("/cart/add", { productId, qty: 1 });
 
-      toast.success(`${productName} added successfully!`); // ✅ success toast
+      toast.success(`${productName} added successfully!`);
     } catch (err) {
       console.error("Add to cart failed:", err);
-      toast.error("Failed to add to cart. Please log in first."); // ✅ error toast
+      toast.error("Failed to add to cart. Please log in first.");
     }
   };
 

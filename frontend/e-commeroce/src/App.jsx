@@ -20,13 +20,13 @@ export default function App() {
           position="sticky"
           elevation={0}
           sx={{
-            background: "rgba(17, 24, 39, 0.7)", // semi-transparent dark
+            background: "rgba(17, 24, 39, 0.7)",
             backdropFilter: "blur(12px)",
             borderBottom: "1px solid rgba(255,255,255,0.1)",
           }}
         >
           <Toolbar>
-            {/* Brand */}
+            {}
             <Typography
               variant="h6"
               sx={{
@@ -40,7 +40,7 @@ export default function App() {
               Astrape
             </Typography>
 
-            {/* Nav Links */}
+            {}
             <Box sx={{ display: "flex", gap: 2 }}>
               <Button
                 component={Link}
@@ -142,7 +142,7 @@ export default function App() {
           </Toolbar>
         </AppBar>
 
-        {/* Pages */}
+        {}
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/cart" element={<Cart />} />

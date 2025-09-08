@@ -14,13 +14,11 @@ export default function Login() {
       console.log(form);
       const res = await api.post("/auth/login", form);
 
-      // If login succeeds
       login(res.data.user, res.data.token);
       nav("/");
     } catch (err) {
       console.error(err);
 
-      // Check if it's a 400 error from backend
       if (err.response && err.response.status === 400) {
         toast.error(err.response.data.message || "Invalid credentials");
       } else {
@@ -36,7 +34,7 @@ export default function Login() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "linear-gradient(135deg, #0d0d0d, #1a1a2e)", // dark theme background
+        background: "linear-gradient(135deg, #0d0d0d, #1a1a2e)",
       }}
     >
       <Container
@@ -66,7 +64,7 @@ export default function Login() {
           Please login to continue
         </Typography>
 
-        {/* Email Input */}
+        {}
         <TextField
           fullWidth
           label="Email"
@@ -80,7 +78,7 @@ export default function Login() {
               color: "#000",
               background: "#f5f5f5",
               borderRadius: "10px",
-            }, // light background
+            },
             "& .MuiOutlinedInput-root": {
               borderRadius: "12px",
               backgroundColor: "#f5f5f5",
@@ -93,7 +91,7 @@ export default function Login() {
           }}
         />
 
-        {/* Password Input */}
+        {}
         <TextField
           fullWidth
           label="Password"
@@ -107,7 +105,7 @@ export default function Login() {
               color: "#000",
               background: "#9fa054ff",
               borderRadius: "10px",
-            }, // light background
+            },
             "& .MuiOutlinedInput-root": {
               borderRadius: "12px",
               backgroundColor: "#9fa054ff",
@@ -120,7 +118,7 @@ export default function Login() {
           }}
         />
 
-        {/* Login Button */}
+        {}
         <Button
           fullWidth
           variant="contained"

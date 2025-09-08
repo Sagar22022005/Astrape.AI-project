@@ -3,13 +3,11 @@ const router = express.Router();
 const Product = require("../models/Product");
 const auth = require("../middleware/auth");
 
-// Create product (for demo you can call this from seed)
 router.post("/", auth, async (req, res) => {
   const p = await Product.create(req.body);
   res.json(p);
 });
 
-// Update product
 router.put("/:id", auth, async (req, res) => {
   const p = await Product.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -17,19 +15,16 @@ router.put("/:id", auth, async (req, res) => {
   res.json(p);
 });
 
-// Delete product
 router.delete("/:id", auth, async (req, res) => {
   await Product.findByIdAndDelete(req.params.id);
   res.json({ message: "deleted" });
 });
 
-// Get single
 router.get("/:id", async (req, res) => {
   const p = await Product.findById(req.params.id);
   res.json(p);
 });
 
-// List with filters: ?q=search&category=Shoes&min=10&max=200&page=1&limit=12&sort=price_asc
 router.get("/", async (req, res) => {
   const { q, category, min, max, page = 1, limit = 12, sort } = req.query;
   const filter = {};

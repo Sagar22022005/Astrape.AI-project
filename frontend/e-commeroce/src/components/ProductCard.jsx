@@ -15,23 +15,28 @@ import api from "../api/api";
 export default function ProductCard({ product }) {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMsg, setSnackbarMsg] = useState("");
-  const [snackbarType, setSnackbarType] = useState("success"); // success | error
+  const [snackbarType, setSnackbarType] = useState("success");
+
+  // Safely handle missing fields
+  const productName = product.name || product.title || "Unnamed Product";
+  const productPrice = product.price ?? "N/A";
+  const productImage =
+    product.image || "https://via.placeholder.com/220x220?text=No+Image";
 
   const addToCart = async () => {
     try {
+      if (!product._id) throw new Error("Product ID missing");
+
       await api.post("/cart/add", {
         productId: product._id,
         qty: 1,
       });
 
-      // ✅ Show success popup
-      setSnackbarMsg(`${product.name} added successfully!`);
+      setSnackbarMsg(`${productName} added successfully!`);
       setSnackbarType("success");
       setSnackbarOpen(true);
     } catch (err) {
       console.error("Add to cart failed:", err);
-
-      // ❌ Show error popup
       setSnackbarMsg("Failed to add to cart. Please log in first.");
       setSnackbarType("error");
       setSnackbarOpen(true);
@@ -60,11 +65,8 @@ export default function ProductCard({ product }) {
           <CardMedia
             component="img"
             height="220"
-            image={
-              product.image ||
-              "https://via.placeholder.com/220x220?text=No+Image"
-            }
-            alt={product.name}
+            image={productImage}
+            alt={productName}
             sx={{ objectFit: "cover" }}
           />
           {product.isNew && (
@@ -96,8 +98,9 @@ export default function ProductCard({ product }) {
               textOverflow: "ellipsis",
             }}
           >
-            {product.name}
+            {productName}
           </Typography>
+
           <Typography
             variant="body2"
             sx={{
@@ -119,7 +122,7 @@ export default function ProductCard({ product }) {
             justifyContent="space-between"
           >
             <Typography variant="h6" sx={{ color: "#a78bfa", fontWeight: 700 }}>
-              ₹{product.price}
+              ₹{productPrice}
             </Typography>
             <Button
               variant="contained"
@@ -145,12 +148,11 @@ export default function ProductCard({ product }) {
         </CardContent>
       </Card>
 
-      {/* ✅ Snackbar Popup near cart (top-right) */}
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={() => setSnackbarOpen(false)}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }} // 👈 top-right corner
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
       >
         <Alert
           onClose={() => setSnackbarOpen(false)}

@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
   const [snackbarMsg, setSnackbarMsg] = useState("");
   const [snackbarType, setSnackbarType] = useState("success");
 
-  // Safely handle missing fields
+  // Safe field mapping
   const productName = product.name || product.title || "Unnamed Product";
   const productPrice = product.price ?? "N/A";
   const productImage =
@@ -26,11 +26,7 @@ export default function ProductCard({ product }) {
   const addToCart = async () => {
     try {
       if (!product._id) throw new Error("Product ID missing");
-
-      await api.post("/cart/add", {
-        productId: product._id,
-        qty: 1,
-      });
+      await api.post("/cart/add", { productId: product._id, qty: 1 });
 
       setSnackbarMsg(`${productName} added successfully!`);
       setSnackbarType("success");
@@ -100,7 +96,6 @@ export default function ProductCard({ product }) {
           >
             {productName}
           </Typography>
-
           <Typography
             variant="body2"
             sx={{
